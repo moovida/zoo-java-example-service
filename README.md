@@ -11,8 +11,8 @@ Files and Folders in the eclipse projects
 WPS stuff
 -----------
 
-* ZooJavaMain: contains the service class ZooJavaWps.
-* ZooJavaDependency: the dependency project, from which a jar should be created. It contains a single utility class called by the main project
+* ZooJavaMain: contains the service class ```org.jgrasstools.ZooJavaWps```.
+* ZooJavaDependency: the dependency project, from which a jar should be created. It contains a single utility class (```org.jgrasstools.utils.Utilities```) called by the main project
 * ZooJavaBuilder.zcfg: the zoo configuration file.
 
 
