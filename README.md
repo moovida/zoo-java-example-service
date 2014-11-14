@@ -41,6 +41,16 @@ The structure of the data in the cgi-bin folder is:
 └── zoo_loader.cgi                   -> the main zoo cgi file
 ```
 
+How to create the jars
+--------------------------
+The jars can be exported from eclipse by right-clicking on the project and using the ```export->Java->Jar file``` option.
+
+* ZooJavaMain -> is exported to -> zoo_java_mainwps.jar
+* ZooJavaDependency -> is exported to -> zoo_java_dependency.jar
+
+Testing GetCapabilities
+---------------------------------
+
 To check if the service is available:
 ```
 http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=zoojavatest&Service=WPS&Request=GetCapabilities&Version=1.0.0
@@ -56,7 +66,17 @@ which should supply some xml containing also:
     </wps:Process>
   </wps:ProcessOfferings>
   ```
-  
+
+Testing Execution
+------------------------
+
+Execution of the service can be triggered through:
+```
+http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=zoojavatest&Service=WPS&Request=Execute&Version=1.0.0&Identifier=ZooJavaBuilder&DataInputs=inPath=/mypath/dtm.asc
+```
+
+This should ideally run the module and launch and exception complaining about the path to the input file **/mypath/dtm.asc** not existing.
+
 
 
 
