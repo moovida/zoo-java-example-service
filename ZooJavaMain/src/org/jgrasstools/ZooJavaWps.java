@@ -13,9 +13,15 @@ public class ZooJavaWps {
 
             Utilities.workOnData(inPath, outPath);
 
-            HashMap<String, Object> outputMap = new HashMap<String, Object>();
-            outputMap.put("outPath", outPath);
-            outputs.put("Result", outputMap);
+//            HashMap<String, Object> outputMap = new HashMap<String, Object>();
+//            HashMap hm1 = new HashMap();
+//            hm1.put("dataType","string");
+//            HashMap tmp=(HashMap)(inputs.get("S"));
+//            java.lang.String v=tmp.get("value").toString();
+//            hm1.put("value","Hello "+v+" from JAVA WOrld !");
+
+            outputs.put("outPath", outPath);
+//            outputs.put("Result", outputMap);
         } catch (Exception e) {
             e.printStackTrace();
             outputs.clear();
@@ -29,6 +35,7 @@ public class ZooJavaWps {
         HashMap inputs = new HashMap();
         inputs.put("inPath", "C:/Users/andre_000/workspace_jgrasstools/ZooJavaMain/dtm.asc");
         inputs.put("outPath", "C:/Users/andre_000/workspace_jgrasstools/ZooJavaMain/outdtm.asc");
+        
         HashMap outputs = new HashMap();
         outputs.put("outPath", "C:/Users/andre_000/workspace_jgrasstools/ZooJavaMain/outdtm.asc");
 

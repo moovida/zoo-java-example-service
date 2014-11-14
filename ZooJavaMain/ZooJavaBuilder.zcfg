@@ -4,7 +4,7 @@
  processVersion = 1
  storeSupported = true
  statusSupported = true
- serviceProvider = ZooJavaWps
+ serviceProvider = org/jgrasstools/ZooJavaWps
  serviceType = Java
  <MetaData>
    title = It tests for java stuff 2.
