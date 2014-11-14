@@ -45,7 +45,18 @@ To check if the service is available:
 ```
 http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=zoojavatest&Service=WPS&Request=GetCapabilities&Version=1.0.0
 ```
-
+which should supply some xml containing also:
+```
+  <wps:ProcessOfferings>
+    <wps:Process wps:processVersion="1">
+      <ows:Identifier>ZooJavaBuilder</ows:Identifier>
+      <ows:Title>ZooJavaTest</ows:Title>
+      <ows:Abstract>It tests for java stuff.</ows:Abstract>
+      <ows:Metadata xlink:title="It tests for java stuff 2."/>
+    </wps:Process>
+  </wps:ProcessOfferings>
+  ```
+  
 
 
 
