@@ -1,0 +1,45 @@
+[ZooJavaBuilder]
+ Title = ZooJavaTest
+ Abstract = It tests for java stuff.
+ processVersion = 1
+ storeSupported = true
+ statusSupported = true
+ serviceProvider = ZooJavaWps
+ serviceType = Java
+ <MetaData>
+   title = It tests for java stuff 2.
+ </MetaData>
+ <DataInputs>
+  [inPath]
+   Title = The map of digital elevation model (DEM).
+   Abstract = The map of digital elevation model (DEM).
+   minOccurs = 0
+   maxOccurs = 1
+   <LiteralData>
+    DataType = string
+    <Default>
+    </Default>
+   </LiteralData>
+  [outPath]
+   Title = Output: The converted map.
+   Abstract = Output: The converted map.
+   minOccurs = 0
+   maxOccurs = 1
+   <LiteralData>
+    DataType = string
+    <Default>
+    </Default>
+   </LiteralData>
+ </DataInputs>
+<DataOutputs>
+  [outPath]
+   Title = Output: The converted map.
+   Abstract = Output: The converted map.
+   minOccurs = 0
+   maxOccurs = 1
+   <LiteralData>
+    DataType = string
+    <Default>
+    </Default>
+   </LiteralData>
+ </DataOutputs>
