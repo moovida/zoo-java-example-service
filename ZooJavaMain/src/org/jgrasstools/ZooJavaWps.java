@@ -8,20 +8,20 @@ public class ZooJavaWps {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static int ZooJavaBuilder( HashMap conf, HashMap inputs, HashMap outputs ) {
         try {
-            String inPath = (String) inputs.get("inPath");
-            String outPath = (String) inputs.get("outPath");
+
+            HashMap<String, Object> inputInPathMap = (HashMap<String, Object>) inputs.get("inPath");
+            String inPath = (String) inputInPathMap.get("value");
+
+            HashMap<String, Object> inputOutPathMap = (HashMap<String, Object>) inputs.get("outPath");
+            String outPath = (String) inputOutPathMap.get("value");
 
             Utilities.workOnData(inPath, outPath);
 
-//            HashMap<String, Object> outputMap = new HashMap<String, Object>();
-//            HashMap hm1 = new HashMap();
-//            hm1.put("dataType","string");
-//            HashMap tmp=(HashMap)(inputs.get("S"));
-//            java.lang.String v=tmp.get("value").toString();
-//            hm1.put("value","Hello "+v+" from JAVA WOrld !");
+            HashMap<String, Object> outputOutPathMap = new HashMap<String, Object>();
+            outputOutPathMap.put("dataType", "string");
+            outputOutPathMap.put("value", outPath);
 
-            outputs.put("outPath", outPath);
-//            outputs.put("Result", outputMap);
+            outputs.put("outPath", outputOutPathMap);
         } catch (Exception e) {
             e.printStackTrace();
             outputs.clear();
@@ -31,16 +31,4 @@ public class ZooJavaWps {
         return 3;
     }
 
-    public static void main( String[] args ) {
-        HashMap inputs = new HashMap();
-        inputs.put("inPath", "C:/Users/andre_000/workspace_jgrasstools/ZooJavaMain/dtm.asc");
-        inputs.put("outPath", "C:/Users/andre_000/workspace_jgrasstools/ZooJavaMain/outdtm.asc");
-        
-        HashMap outputs = new HashMap();
-        outputs.put("outPath", "C:/Users/andre_000/workspace_jgrasstools/ZooJavaMain/outdtm.asc");
-
-        int zooJavaBuilder = ZooJavaBuilder(null, inputs, outputs);
-        System.out.println(zooJavaBuilder);
-
-    }
 }
