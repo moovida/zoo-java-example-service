@@ -5,27 +5,26 @@ import java.util.HashMap;
 import org.jgrasstools.utils.Utilities;
 
 public class ZooJavaWps {
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public static int ZooJavaBuilder( HashMap conf, HashMap inputs, HashMap outputs ) {
+    public static int ZooJavaBuilder( HashMap<String, HashMap<String, String>> conf,
+            HashMap<String, HashMap<String, String>> inputs, HashMap<String, HashMap<String, String>> outputs ) {
         try {
+            HashMap<String, String> inputInPathMap = inputs.get("inPath");
+            String inPath = inputInPathMap.get("value");
 
-            HashMap<String, Object> inputInPathMap = (HashMap<String, Object>) inputs.get("inPath");
-            String inPath = (String) inputInPathMap.get("value");
+            HashMap<String, String> inputInParameterMap = inputs.get("inParameter");
+            String inParameter = inputInParameterMap.get("value");
 
-            HashMap<String, Object> inputOutPathMap = (HashMap<String, Object>) inputs.get("outPath");
-            String outPath = (String) inputOutPathMap.get("value");
+            HashMap<String, String> inputOutPathMap = (HashMap<String, String>) inputs.get("outPath");
+            String outPath = inputOutPathMap.get("value");
 
-            Utilities.workOnData(inPath, outPath);
+            Utilities.workOnData(inPath, outPath, Double.parseDouble(inParameter));
 
-            HashMap<String, Object> outputOutPathMap = new HashMap<String, Object>();
-            outputOutPathMap.put("dataType", "string");
+            HashMap<String, String> outputOutPathMap = outputs.get("outPath");
             outputOutPathMap.put("value", outPath);
-
-            outputs.put("outPath", outputOutPathMap);
         } catch (Exception e) {
             e.printStackTrace();
-            outputs.clear();
-            outputs.put("Result", "ERROR: " + e.getLocalizedMessage());
+            HashMap<String, String> outputOutPathMap = outputs.get("outPath");
+            outputOutPathMap.put("value", "ERROR: " + e.getLocalizedMessage());
             return 4;
         }
         return 3;

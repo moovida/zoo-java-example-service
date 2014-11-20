@@ -20,6 +20,16 @@
     <Default>
     </Default>
    </LiteralData>
+  [inParameter]
+   Title = The multiplication factor.
+   Abstract = The multiplication factor.
+   minOccurs = 1
+   maxOccurs = 1
+   <LiteralData>
+    DataType = double
+    <Default>
+    </Default>
+   </LiteralData>
   [outPath]
    Title = Output: The converted map.
    Abstract = Output: The converted map.

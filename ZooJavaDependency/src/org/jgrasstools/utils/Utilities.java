@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class Utilities {
 
-    public static void workOnData( String inDataPath, String outDataPath ) throws Exception {
+    public static void workOnData( String inDataPath, String outDataPath, double inParameter ) throws Exception {
         List<String> header = new ArrayList<>();
         List<String> lines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(inDataPath))) {
