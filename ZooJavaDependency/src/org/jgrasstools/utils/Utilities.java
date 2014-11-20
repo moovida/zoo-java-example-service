@@ -2,8 +2,10 @@ package org.jgrasstools.utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,11 @@ import java.util.List;
 public class Utilities {
 
     public static void workOnData( String inDataPath, String outDataPath, double inParameter ) throws Exception {
+        File inDataFile = new File(inDataPath);
+        if (!inDataFile.exists()) {
+            throw new IOException("The input file doesn't exist: " + inDataPath);
+        }
+
         List<String> header = new ArrayList<>();
         List<String> lines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(inDataPath))) {
